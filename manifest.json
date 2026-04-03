@@ -1,0 +1,13 @@
+{
+  "manifest_version": 1.0,
+  "name": "Amar's YouTube(Premium) Autoskipper",
+  "version": "1.0",
+  "description": "Automatically clicks Jump Ahead. For YouTube Premium users only.",
+  "content_scripts": [
+    {
+      "matches": ["https://www.youtube.com/*"],
+      "js": ["content.js"],
+      "css": ["styles.css"]
+    }
+  ]
+}
