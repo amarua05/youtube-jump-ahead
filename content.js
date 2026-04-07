@@ -29,21 +29,24 @@ function patchJumpAheadText() {
     characterData: true
   });
 }
-            function simulateClick(btn) {
-              ['mousedown', 'mouseup', 'click'].forEach(type => {
-                btn.dispatchEvent(new MouseEvent(type, {
-                  bubbles: true,
-                  cancelable: true,
-                  view: window,
-                }));
-              });
-            }
+function simulateClick(btn) {
+  ['mousedown', 'mouseup', 'click'].forEach(type => {
+    btn.dispatchEvent(new MouseEvent(type, {
+      bubbles: true,
+      cancelable: true,
+      view: window,
+    }));
+  });
+}
                 
-                function tryClickJumpAhead() {
-                    const now = Date.now();
-                    if (now - lastClicked < 200) return;
-                    
-                    const btn = getJumpAheadButton();
+function tryClickJumpAhead() {
+    const now = Date.now();
+    if (now - lastClicked < 200) return;
+    const btn = getJumpAheadButton();
+    if (btn){
+      simulateClick(btn);
+      lastClicked = now;
+    } 
 }
 
 /* ------------------ OBSERVER ------------------ */
